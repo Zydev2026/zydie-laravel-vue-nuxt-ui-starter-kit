@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 import { Head, useForm } from '@inertiajs/vue3'
+import { computed } from 'vue'
 import type { NavigationMenuItem } from '@nuxt/ui'
 
 defineProps<{
@@ -39,7 +39,7 @@ const items = computed<NavigationMenuItem[]>(() => [
 
 <template>
     <UApp>
-        <Head title="Dashboard" />
+        <Head title="Profile" />
 
         <UDashboardGroup>
             <UDashboardSidebar collapsible resizable>
@@ -74,7 +74,7 @@ const items = computed<NavigationMenuItem[]>(() => [
 
             <UDashboardPanel>
                 <template #header>
-                    <UDashboardNavbar title="Dashboard">
+                    <UDashboardNavbar title="Profile">
                         <template #leading>
                             <UDashboardSidebarCollapse />
                         </template>
@@ -85,12 +85,10 @@ const items = computed<NavigationMenuItem[]>(() => [
                     <div class="p-6">
                         <UCard>
                             <template #header>
-                                <h2 class="text-lg font-semibold text-default">Welcome, {{ auth.user.name }}!</h2>
+                                <h2 class="text-lg font-semibold text-default">Profile</h2>
                             </template>
 
-                            <p class="text-muted">
-                                You are logged in as <strong>{{ auth.user.email }}</strong>.
-                            </p>
+                            <p class="text-muted">Profile settings coming soon.</p>
                         </UCard>
                     </div>
                 </template>
