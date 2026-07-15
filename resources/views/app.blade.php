@@ -16,6 +16,8 @@
         </x-inertia::head>
     </head>
     <body class="font-sans antialiased">
-        <x-inertia::app />
+        <div class="isolate">
+            <x-inertia::app />
+        </div>
     </body>
 </html>
