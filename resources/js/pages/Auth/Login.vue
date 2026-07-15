@@ -44,12 +44,9 @@ function submit() {
                     </div>
 
                     <div>
-                        <div class="flex items-center justify-between">
+                       
                             <label for="password" class="text-sm font-medium text-default">Password</label>
-                            <Link href="/forgot-password" class="text-sm text-primary font-medium">
-                                Forgot password?
-                            </Link>
-                        </div>
+                      
                         <UInput
                             id="password"
                             v-model="form.password"
@@ -60,9 +57,14 @@ function submit() {
                         <p v-if="form.errors.password" class="mt-1 text-sm text-error">{{ form.errors.password }}</p>
                     </div>
 
+                <div  class="flex items-center justify-between">
                     <UCheckbox v-model="form.remember" label="Remember me" name="remember" />
+                    <Link href="/forgot-password" class="text-sm text-primary font-medium">
+                                Forgot password?
+                    </Link>
+                </div>
 
-                    <UButton type="submit" :loading="form.processing" label="Sign in" block />
+                    <UButton type="submit" :loading="form.processing" label="Log in" block />
                 </form>
 
                 <template #footer>

@@ -23,12 +23,7 @@ function submit() {
 
         <div class="flex min-h-dvh items-center justify-center p-4">
             <UCard class="w-full max-w-sm">
-                <template #header>
-                    <div class="text-center">
-                        <h1 class="text-xl font-semibold text-default">Create an account</h1>
-                        <p class="mt-1 text-sm text-muted">Get started with your free account</p>
-                    </div>
-                </template>
+              
 
                 <form @submit.prevent="submit" class="space-y-4">
                     <div>
@@ -85,7 +80,7 @@ function submit() {
                 <template #footer>
                     <p class="text-center text-sm text-muted">
                         Already have an account?
-                        <Link href="/login" class="text-primary font-medium">Sign in</Link>
+                        <Link href="/login" class="text-primary font-medium">Log in</Link>
                     </p>
                 </template>
             </UCard>
