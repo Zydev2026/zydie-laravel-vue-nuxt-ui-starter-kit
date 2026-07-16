@@ -2,7 +2,7 @@
     "$schema": "https://getcomposer.org/schema.json",
     "name": "zydie/laravel-vue-nuxt-ui-starter-kit",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
+    "description": "Laravel 13 Starter Kit with Inertia.js, Vue 3, TypeScript, Tailwind CSS v4, Nuxt UI, and Wayfinder.",
     "keywords": [
         "laravel",
         "framework"
