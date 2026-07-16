@@ -1,100 +1,23 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import { Head, useForm } from '@inertiajs/vue3'
-import type { NavigationMenuItem } from '@nuxt/ui'
+import { Head, setLayoutProps } from '@inertiajs/vue3';
+import type { BreadcrumbItem } from '@nuxt/ui';
+import AppLayout from '@/layouts/AppLayout.vue';
+import type { Auth } from '@/types/auth';
+
+defineOptions({
+    layout: AppLayout,
+});
 
 defineProps<{
-    auth: {
-        user: {
-            name: string
-            email: string
-        }
-    }
-}>()
+    auth: Auth;
+}>();
 
-const form = useForm({})
-
-function logout() {
-    form.post('/logout')
-}
-
-const items = computed<NavigationMenuItem[]>(() => [
-    {
-        label: 'Home',
-        icon: 'i-lucide-house',
-        to: '/dashboard',
-    },
-    {
-        label: 'Profile',
-        icon: 'i-lucide-user',
-        to: '/dashboard/profile',
-    },
-    {
-        label: 'Settings',
-        icon: 'i-lucide-settings',
-        to: '/dashboard/settings',
-    },
-])
+setLayoutProps({
+    breadcrumbs: [{ label: 'Dashboard' }] as BreadcrumbItem[],
+});
 </script>
 
 <template>
-    <UApp>
-        <Head title="Dashboard" />
-
-        <UDashboardGroup>
-            <UDashboardSidebar collapsible resizable>
-                <template #header="{ collapsed }">
-                    <div class="flex items-center gap-2 px-2" :class="collapsed ? 'justify-center' : ''">
-                        <span class="text-xl font-bold text-default">L</span>
-                        <span v-if="!collapsed" class="text-sm font-semibold text-default">{{ $page.props.name }}</span>
-                    </div>
-                </template>
-
-                <template #default="{ collapsed }">
-                    <UNavigationMenu
-                        :collapsed="collapsed"
-                        :items="items"
-                        orientation="vertical"
-                    />
-                </template>
-
-                <template #footer="{ collapsed }">
-                    <div class="border-t border-muted p-2">
-                        <UButton
-                            :icon="collapsed ? 'i-lucide-log-out' : undefined"
-                            :label="collapsed ? undefined : 'Sign out'"
-                            color="neutral"
-                            variant="ghost"
-                            block
-                            @click="logout"
-                        />
-                    </div>
-                </template>
-            </UDashboardSidebar>
-
-            <UDashboardPanel>
-                <template #header>
-                    <UDashboardNavbar title="Dashboard">
-                        <template #leading>
-                            <UDashboardSidebarCollapse />
-                        </template>
-                    </UDashboardNavbar>
-                </template>
-
-                <template #body>
-                    <div class="p-6">
-                        <UCard>
-                            <template #header>
-                                <h2 class="text-lg font-semibold text-default">Welcome, {{ auth.user.name }}!</h2>
-                            </template>
-
-                            <p class="text-muted">
-                                You are logged in as <strong>{{ auth.user.email }}</strong>.
-                            </p>
-                        </UCard>
-                    </div>
-                </template>
-            </UDashboardPanel>
-        </UDashboardGroup>
-    </UApp>
+    <Head title="Dashboard" />
+    <p class="text-muted">Dashboard content goes here.</p>
 </template>
